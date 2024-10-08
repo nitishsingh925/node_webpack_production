@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "description": "Node Project Build using WebPack",
   "type": "module",
-  "main": "src/index.js",
+  "main": "dist/index.cjs",
   "scripts": {
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch src/index.js",
+    "build": "webpack --config webpack.cjs --stats-error-details && powershell -Command \"Get-ChildItem -Path dist\\* | Select-Object Name, Length"
   },
   "author": "Nitish Singh",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   }
 }
